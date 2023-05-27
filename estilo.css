@@ -1,0 +1,101 @@
+
+#div-opcoes {
+  margin-top: 30px;
+}
+
+.fotos-armazenadas {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(43, 30, 47, 1) 100%, rgba(0, 212, 255, 1) 100%);
+}
+
+
+h3 {
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+  text-shadow: 2px 2px 10px turquoise;
+}
+
+.container-slide {
+  display: flex;
+  justify-content: space-between;
+  width: 50vw;
+  height: 50vh;
+  background-color: black;
+  margin: 5vh auto;
+  border-radius: 10px;
+  box-shadow: 0 20px 30px black;
+}
+
+.container-items {
+  position: absolute;
+  display: flex;
+
+  width: 50vw;
+  height: 50vh;
+  border-radius: 10px;
+  overflow: hidden;
+
+}
+
+.item {
+  width: 50vw;
+  height: 50vh;
+  transition: all 1s;
+}
+
+.item:first-child {
+  margin-left: -100%;
+}
+
+.item img {
+  width: 50vw;
+  height: 50vh;
+  border-radius: 10px;
+}
+
+.action-button {
+  font: bold 30px sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  user-select: none;
+  width: 50px;
+  z-index: 1;
+
+}
+
+.action-button:hover {
+  color: white;
+  background-color: #00000060;
+  border-radius: 10px;
+  cursor: pointer;
+  transform: all 1s;
+}
+
+
+
+.galeriaDeFotosSalvas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.fotos-armazenadas img {
+  width: 250px;
+  /* Adjust the width as needed */
+  max-height: 200px;
+}
+
+#botaoExcluir {
+  font-size: 20px;
+  padding: 2px; 
+}
+

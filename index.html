@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Meu Carrossel de Fotos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilo.css" />
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div class="container">
+    
+        <div id="div-opcoes" class="mt-4">
+            <label style="color: white;">
+                <h4>Selecione uma raça:</h4>
+            </label>
+            <select id="opcoes" class="form-control" style="color: black;">
+                <option value="akita">Akita</option>
+                <option value="chow">Chow</option>
+                <option value="beagle">Beagle</option>
+                <option value="boxer">Boxer</option>
+                <option value="labrador">Labrador</option>
+                <option value="african">African</option>
+            </select>
+            <div class="text-center mt-2">
+                <button type="button" id="botao-pesquisar" class="btn btn-primary">Pesquisar</button>
+            </div>
+        </div>
+        <h3 id="titulo"></h3>
+        <div class="container-slide">
+            <div style="display: none"  class="action-button" id="previous">&laquo</div>
+            <div class="container-items" id="container-items">
+                <img crossorigin="anonymous" style="width: 100%;" id="imagem" src="cacto.jpg" /></div>
+            <div style="display: none"  class="action-button" id="next">&raquo</div>
+        </div>
+
+
+        <div class="row mt-4" >
+            <div class="col text-center">
+                <button style="display: none" id="salvarFoto" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+
+
+        <div class="row mt-4">
+            <div class="col">
+                <div class="galeriaDeFotosSalvas">
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
