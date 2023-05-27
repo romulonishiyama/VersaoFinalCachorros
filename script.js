@@ -78,9 +78,17 @@ btnSalvar.addEventListener('click', () => {
 
         //SE COM DADOS
     } else {
-        bancoLocal.push(obj);
-        localStorage.setItem('album', JSON.stringify(bancoLocal));
-        criarElemento(obj);
+
+        if (!verificarSeFotoJaExiste(bancoLocal, img64)) {
+            bancoLocal.push(obj);
+            localStorage.setItem('album', JSON.stringify(bancoLocal));
+            criarElemento(obj);
+
+        } else {
+            alert("Foto já existe!")
+        }
+
+
 
     }
 
@@ -126,21 +134,21 @@ function criarElemento(obj) {
 function excluirDoLocalStorage(event) {
 
     let confirmacao = confirm("Deseja deletar essa foto?");
-    if(confirmacao){
+    if (confirmacao) {
         let bancoLocal = JSON.parse(localStorage.getItem('album'));
 
         let valorDoID = event.target.parentNode.childNodes[0].attributes[0].value;
-    
+
         let index = bancoLocal.findIndex(e => e.id == valorDoID);
-    
+
         bancoLocal.splice(index, 1);
-    
+
         localStorage.setItem('album', JSON.stringify(bancoLocal));
-    
+
         location.reload();
 
     }
-   
+
 };
 
 
@@ -157,6 +165,20 @@ function imprimiFotosDoBanco() {
 
 };
 
+function verificarSeFotoJaExiste(bancoLocal, img64) {
+
+    let resultado = bancoLocal.find(e => e.fotoArmazenada == img64);
+    if (resultado != undefined || resultado != null) {
+        if (resultado.fotoArmazenada != img64) {
+            return false;
+            console.log('Nao existe');
+        } else {
+            return true;
+            console.log('Encontrado');
+        }
+    }
+
+};
 
 
 imprimiFotosDoBanco();
