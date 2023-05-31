@@ -6,6 +6,8 @@ const btnSalvar = document.querySelector('#salvarFoto');
 const galeriaDeFotosSalvas = document.querySelector('.galeriaDeFotosSalvas');
 const imagemPrincipal = document.querySelector('#imagem');
 const titulo = document.querySelector('#titulo');
+let bancoLocal = JSON.parse(localStorage.getItem('album'));
+
 
 var arrayDeFotosDaRaca = [];
 var contador = 0;
@@ -60,7 +62,6 @@ fotoAnterior.addEventListener('click', () => {
 
 btnSalvar.addEventListener('click', () => {
 
-    let bancoLocal = JSON.parse(localStorage.getItem('album'));
     let img64 = converteParaBase64(imagemPrincipal);
     let numeroAletorio = Math.random() * 100000;
 
@@ -90,7 +91,7 @@ btnSalvar.addEventListener('click', () => {
 
 
 
-    }
+   }
 
 });
 
@@ -106,6 +107,7 @@ function converteParaBase64(imagem) {
 };
 
 function criarElemento(obj) {
+
 
     let criarDiv = document.createElement('div');
     criarDiv.className = 'fotos-armazenadas';
@@ -135,7 +137,7 @@ function excluirDoLocalStorage(event) {
 
     let confirmacao = confirm("Deseja deletar essa foto?");
     if (confirmacao) {
-        let bancoLocal = JSON.parse(localStorage.getItem('album'));
+
 
         let valorDoID = event.target.parentNode.childNodes[0].attributes[0].value;
 
@@ -145,7 +147,8 @@ function excluirDoLocalStorage(event) {
 
         localStorage.setItem('album', JSON.stringify(bancoLocal));
 
-        location.reload();
+        imprimiFotosDoBanco();
+
 
     }
 
@@ -153,9 +156,11 @@ function excluirDoLocalStorage(event) {
 
 
 function imprimiFotosDoBanco() {
-    let bancoLocal = JSON.parse(localStorage.getItem('album'));
+
 
     if (bancoLocal != null) {
+        galeriaDeFotosSalvas.innerHTML = "";
+
         bancoLocal.forEach(element => {
             criarElemento(element);
 
