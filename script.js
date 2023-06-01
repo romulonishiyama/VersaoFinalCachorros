@@ -6,7 +6,7 @@ const btnSalvar = document.querySelector('#salvarFoto');
 const galeriaDeFotosSalvas = document.querySelector('.galeriaDeFotosSalvas');
 const imagemPrincipal = document.querySelector('#imagem');
 const titulo = document.querySelector('#titulo');
-let bancoLocal = JSON.parse(localStorage.getItem('album'));
+
 
 
 var arrayDeFotosDaRaca = [];
@@ -61,6 +61,8 @@ fotoAnterior.addEventListener('click', () => {
 });
 
 btnSalvar.addEventListener('click', () => {
+    
+    let bancoLocal = JSON.parse(localStorage.getItem('album'));
 
     let img64 = converteParaBase64(imagemPrincipal);
     let numeroAletorio = Math.random() * 100000;
@@ -134,6 +136,8 @@ function criarElemento(obj) {
 };
 
 function excluirDoLocalStorage(event) {
+    let bancoLocal = JSON.parse(localStorage.getItem('album'));
+
 
     let confirmacao = confirm("Deseja deletar essa foto?");
     if (confirmacao) {
@@ -156,6 +160,8 @@ function excluirDoLocalStorage(event) {
 
 
 function imprimiFotosDoBanco() {
+    let bancoLocal = JSON.parse(localStorage.getItem('album'));
+
 
 
     if (bancoLocal != null) {
@@ -171,6 +177,8 @@ function imprimiFotosDoBanco() {
 };
 
 function verificarSeFotoJaExiste(bancoLocal, img64) {
+
+
 
     let resultado = bancoLocal.find(e => e.fotoArmazenada == img64);
     if (resultado != undefined || resultado != null) {
